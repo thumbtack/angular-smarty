@@ -166,12 +166,12 @@ app.directive("smartySuggestions", ["$document", function($document) {
             'ng-class="{selected: $index == selected}" ' +
             'ng-mouseover="applyClass({x:$index})" ' +
             'ng-click="selectSuggestion()"> '+
-                '[[suggestion]] ' +
+                '{{suggestion}} ' +
             '</p>' +
             '<p ng-mouseover="applyClass({x:suggestions.length})" ' +
             'ng-class="{selected: suggestions.length == selected}" ' +
             'ng-click="selectSuggestion()" class="show-all"> ' +
-            'Show all for "[[prefix]]" &raquo;</p>'
+            'Show all for "{{prefix}}" &raquo;</p>'
     };
 }]);
 
@@ -195,7 +195,7 @@ app.directive("smartySuggestionsBox", function() {
         template: '<div smarty-suggestions apply-class="setSelected(x)"' +
             'select-suggestion="suggestionPicked()" suggestions="suggestions"' +
             'selected="selected" clicked-elsewhere="clickedSomewhereElse()"' +
-            'ng-if="suggestions.length > 0" prefix="[[prefix]]"' +
+            'ng-if="suggestions.length > 0" prefix="{{prefix}}"' +
             'class="autocomplete-suggestions-menu ng-cloak"></div>'
     };
 });

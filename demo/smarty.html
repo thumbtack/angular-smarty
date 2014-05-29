@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body ng-controller="SmartyController">
+    <div class="container-main">
+        <h1>angular-smarty demo</h1>
+        <div class="container-autocomplete">
+            <input type="text" smarty-input select="setSelected(x)"
+                index="selected" list-items="suggestions" close="suggestionPicked()"
+                selection-made="selectionMade" ng-model="prefix"></input>
+            <div smarty-suggestions-box></div>
+            <input type="text" focus-me focus-when="{{selectionMade}}"></input>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" type="text/css" href="smarty.css"></link>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js"></script>
+<script type="text/javascript" src="smarty-config.js"></script>
+<script type="text/javascript" src="smarty.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        angular.bootstrap(angular.element("body"), ["angular-smarty"]);
+    });
+</script>
+</html>
