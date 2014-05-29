@@ -1,0 +1,23 @@
+{
+  "name": "angular-smarty",
+  "version": "0.3.0",
+  "authors": [
+    "Katie Thomas <kthomas@thumbtack.com>"
+  ],
+  "description": "Angular add-on for creating a drop-down list of autocomplete suggestions for a form input.",
+  "main": "smarty.js",
+  "keywords": [
+    "autocomplete",
+    "drop-down",
+    "smarty",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "github.com/thumbtack/angular-smarty",
+  "ignore": [
+    "**/.*",
+  ],
+  "dependencies": {
+      "angular": "1.*"
+  }
+}
