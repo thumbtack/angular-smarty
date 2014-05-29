@@ -15,7 +15,7 @@
   "license": "MIT",
   "homepage": "github.com/thumbtack/angular-smarty",
   "ignore": [
-    "**/.*",
+    "**/.*"
   ],
   "dependencies": {
       "angular": "1.*"
