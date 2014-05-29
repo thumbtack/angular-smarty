@@ -1,0 +1,31 @@
+.container-main {
+    margin: auto;
+    width: 300px;
+}
+
+.container-autocomplete {
+    margin: auto;
+    width: 200px;
+    position: relative;
+}
+
+.autocomplete-suggestions-menu {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.container-autocomplete input {
+    width: 100%;
+}
+
+.autocomplete-suggestions-menu p:hover {
+    cursor: default;
+}
+
+.autocomplete-suggestions-menu .selected {
+    color: #CCCCCC;
+    background: yellow;
+}
