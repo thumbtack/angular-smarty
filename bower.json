@@ -5,7 +5,7 @@
     "Katie Thomas <kthomas@thumbtack.com>"
   ],
   "description": "Angular add-on for creating a drop-down list of autocomplete suggestions for a form input.",
-  "main": "smarty.js",
+  "main": ["src/smarty.js", "src/smarty-config.js"],
   "keywords": [
     "autocomplete",
     "drop-down",
