@@ -3,44 +3,47 @@
 
 var app = angular.module("angular-smarty-config", []);
 
-app.service("smartyConfig", function() {
+app.service("smartyConfig", ["$http", function($http) {
+    /* The default getSmartySuggestions function makes a request to requestUrl with the given
+     * requestParams and expects an array of JSON objects in return, e.g. [{Name: suggestion1},
+     * {Name: suggestion2}]
+     */
     var requestUrl = "",
         requestParams = {};
 
-    function getRequestUrl() {
-        return requestUrl;
-    }
-
-    function getRequestParams() {
-        return requestParams;
-    }
-
-    return {
-        getRequestUrl: getRequestUrl,
-        getRequestParams: getRequestParams
-    }
-});
-
-app.service("smartySuggestor", ["$http", "smartyConfig", function($http, smartyConfig) {
+    /* getSmartySuggestions should return a promise.  See the demo for an example of how to
+     * construct an Angular promise.
+     */
     function getSmartySuggestions(prefix) {
-        var requestParams = smartyConfig.getRequestParams();
         requestParams["query"] = escape(prefix.toLowerCase());
-        var promise = $http.get(smartyConfig.getRequestUrl(),
+        var promise = $http.get(requestUrl(),
             {
                 params: requestParams,
                 cache: true
             }
         )
         .then(function(response) {
-            // response.data is an array of objects
+            /* response.data is an the array of JSON objects where Name is the key used to identify
+             * a suggestion
+             */
             return response.data.slice(0, 5).map(function(item) {
                 return item.Name;
             });
         });
-    return promise;
+        return promise;
     }
+
+    return {
+        getSmartySuggestions: getSmartySuggestions
+    }
+}]);
+
+app.service("smartySuggestor", ["smartyConfig", function(smartyConfig) {
+    var getSmartySuggestions = smartyConfig.getSmartySuggestions;
+
     return {
         getSmartySuggestions: getSmartySuggestions
     };
 }]);
+
 })();
