@@ -7,3 +7,4 @@ To Do
 4. Create services for clickedSomewhereElse and submitClicked to make code more testable.
 5. Add tests.
 6. Make more contributor-friendly.
+7. Add config variable for number of responses.
