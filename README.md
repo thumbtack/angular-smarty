@@ -25,23 +25,25 @@ inject angular-smarty, or if you're not using Angular elsewhere on your page, in
 `angular.bootstrap(angular.element("body"), ["angular-smarty"]);` in a script tag in your html and
 don't forget that Angular is a dependency.
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            angular.bootstrap(angular.element("body"), ["angular-smarty"]);
-        });
-    </script>
+```js
+$(document).ready(function() {
+    angular.bootstrap(angular.element("body"), ["angular-smarty"]);
+});
+```
 
 Model your html after the following:
 
-    <body ng-controller="SmartyController">
-        <div class="container-main">
-            <h1>angular-smarty demo</h1>
-            <div class="container-autocomplete">
-                <input type="text" smarty-input select="setSelected(x)"
-                    index="selected" list-items="suggestions" close="suggestionPicked()"
-                    selection-made="selectionMade" ng-model="prefix"></input>
-                <div smarty-suggestions-box></div>
-                <input type="text" focus-me focus-when="{{selectionMade}}"></input>
-            </div>
+```html
+<body ng-controller="SmartyController">
+    <div class="container-main">
+        <h1>angular-smarty demo</h1>
+        <div class="container-autocomplete">
+            <input type="text" smarty-input select="setSelected(x)"
+                index="selected" list-items="suggestions" close="suggestionPicked()"
+                selection-made="selectionMade" ng-model="prefix"></input>
+            <div smarty-suggestions-box></div>
+            <input type="text" focus-me focus-when="{{selectionMade}}"></input>
         </div>
-    </body>
+    </div>
+</body>
+```
