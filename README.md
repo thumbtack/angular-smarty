@@ -26,7 +26,7 @@ inject angular-smarty, or if you're not using Angular elsewhere on your page, in
 don't forget that Angular is a dependency.
 
 ```js
-$(document).ready(function() {
+$(function() {
     angular.bootstrap(angular.element("body"), ["angular-smarty"]);
 });
 ```
