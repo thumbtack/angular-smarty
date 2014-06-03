@@ -12,7 +12,7 @@
     "smarty",
     "angular"
   ],
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "homepage": "github.com/thumbtack/angular-smarty",
   "ignore": [
     "**/.*"
