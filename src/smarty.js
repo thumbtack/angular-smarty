@@ -54,9 +54,13 @@ app.controller("SmartyController", [
             $scope.suggestions = [];
         };
 
-        $document.bind("click", function() {
+        $document.bind("click", onDocumentClick);
+        $scope.$on("$destroy", function() {
+            $document.unbind("click", onDocumentClick);
+        })
+        function onDocumentClick() {
             $scope.$apply($scope.clickedSomewhereElse());
-        });
+        }
 
         $scope.suggestionPicked = function() {
             if ($scope.selected != -1 && $scope.selected < $scope.suggestions.length) {
