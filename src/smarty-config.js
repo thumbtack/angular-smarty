@@ -3,7 +3,7 @@
 
 var app = angular.module("angular-smarty-config", []);
 
-app.service("smartyConfig", ["$http", function($http) {
+app.service("smartyConfig", ["$http", "$filter", function($http, $filter) {
     /* The default getSmartySuggestions function makes a request to requestUrl with the given
      * requestParams and expects an array of JSON objects in return, e.g. [{Name: suggestion1},
      * {Name: suggestion2}]
@@ -26,7 +26,7 @@ app.service("smartyConfig", ["$http", function($http) {
             /* response.data is an the array of JSON objects where Name is the key used to identify
              * a suggestion
              */
-            return response.data.slice(0, 5).map(function(item) {
+            return $filter("limitTo")(response.data, 5).map(function(item) {
                 return item.Name;
             });
         });
